@@ -29,7 +29,7 @@ const {
 <li class="nav-link">
     <Link 
         to={href} 
-        class={`flex items-center gap-2 font-semibold hover:underline hover:underline-offset-4 ${className} `} 
+        class={`lenis-link nav-link-a flex items-center gap-2 hover:underline hover:underline-offset-4 ${className} `}
     >
 
         {icon && icon }
@@ -57,3 +57,14 @@ li.nav-link {
 }
 
 </style>
+
+
+
+<script>
+
+const navLinks = document.querySelectorAll('.nav-link-a')
+navLinks.forEach( link => link.addEventListener('click', () => {
+    document.body.classList.remove('mobile-menu-is-open')
+}))
+
+</script>

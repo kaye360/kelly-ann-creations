@@ -45,7 +45,7 @@ const {
  */}
 
 <header data-transparent={transparent} class={`
-    hasColorBG
+    
     ${ sticky ? 'sticky top-0 z-[999]' : '' }
     ${className}
 `}>
@@ -54,7 +54,7 @@ const {
 
     <Wrapper width="max" padding="inline">
 
-        <div class="nav-wrapper">
+        <div class="nav-wrapper font-stylized">
 
             <div class="order-1 mr-auto">
                 <Logo slot="logo" />
@@ -109,7 +109,7 @@ header.hasColorBG {
 <script>
 
 const header = document.querySelector('header') as HTMLDivElement
-const hero  = document.querySelector('#hero') as HTMLDivElement
+const hero  = document.querySelector('#home') as HTMLDivElement
 
 const headerIsTransparent = header?.dataset.transparent === 'true'
 
@@ -121,18 +121,22 @@ function toggleNavTransparency() {
     const heroObserverOptions = {
         root : null,
         threshold : 0,
-        rootMargin : "-70% 0px 0px 0px"
+        rootMargin : "-60% 0px 0px 0px"
     }
-    
+
     const heroObserver = new IntersectionObserver( entries => {
         entries.forEach(entry => {
             
+            console.log(entry)
+
             if(entry.isIntersecting) {
                 header.classList.add('hasTransparentBG')
                 header.classList.remove('hasColorBG')
+                console.log('transparent')
             } else {
                 header.classList.remove('hasTransparentBG')
                 header.classList.add('hasColorBG')
+                console.log('color')
             }
             
         })

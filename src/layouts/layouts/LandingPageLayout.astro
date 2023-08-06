@@ -24,18 +24,14 @@ const {
 
 	<Meta title={title} description={description} materialIcons decap	/>
 
-	<body class={`bg-[var(--body-bg-color)] text-[var(--body-text-color)] ${className}`}>
+	<body class={`bg-[var(--body-bg-color)] text-[var(--body-text-color)] font-base ${className}`}>
 
 		<SkipToContent />
 
 		<HeaderTopBar props>
 
-			<ContactLinks slot="contact" class="text-sm py-1" />
-
 			<NavLinks slot='navLinks' />
 			
-			<NavCTALink slot='cta' icon="explore" />
-
 		</HeaderTopBar>
 		
 		<slot />

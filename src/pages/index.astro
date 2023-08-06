@@ -1,11 +1,12 @@
 ---
-import Wrapper from '../components/Wrapper.astro';
-import TextFlow from '../components/TextFlow.astro';
-import EvenColumns from '../components/EvenColumns.astro';
-import Card from '../components/Card.astro';
 import Layout from '../layouts/Layout.astro';
+import HeroMidScreen5050 from '../components/Heros/HeroMidScreen5050.astro';
+import Wrapper from '../components/Wrapper.astro';
 import Image from '../components/Image.astro';
-import HeroFullScreen from '../components/Heros/HeroFullScreen.astro';
+import TextFlow from '../components/TextFlow.astro';
+import FormField from '../components/Forms/FormField.astro';
+import FormSubmit from '../components/Forms/FormSubmit.astro';
+import NetlifyForm from '../components/Forms/NetlifyForm.astro';
 
 ---
 
@@ -15,220 +16,372 @@ import HeroFullScreen from '../components/Heros/HeroFullScreen.astro';
 	description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro in expedita beatae perferendis quod qui perspiciatis numquam."
 >
 
-	<HeroFullScreen props
+	<HeroMidScreen5050 props
 		slot='hero'
-		align='center'
-		heading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, unde." 
-		subheading='Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus.'
-		primaryCTAText='Buy now'
-		primaryCTALink='#'
+		align='left'
+		subheading='From classic elegance to modern marvels, our cakes are meticulously crafted to reflect your unique love story.'
+		primaryCTAText='Order Now'
+		primaryCTALink='#contact'
 		secondaryCTAText='Learn more'
-		secondaryCTALink='#'
-	/>
+		secondaryCTALink='#intro'
+	>
+		<h1 slot="heading" class="text-secondary-700 p-0 m-0">
 
-	<section>
-		<Wrapper width="max" padding='both'>
+			<span class="inline-block text-3xl overflow-hidden">
+				<span class="inline-block animate-hero">
+					custom, handcrafted
+				</span>
+			</span><br />
 
-			<h2 class="mb-[1em] border-b-2 border-sky-100">Card Example</h2>
+			<span class="inline-block font-stylized text-primary-500 text-6xl sm:text-7xl overflow-hidden">
+				<span class="inline-block animate-hero">
+					wedding cakes
+				</span>
+			</span><br />
 
-			<EvenColumns breakpoints={2} class='gap-6'>
+			<span class="inline-block overflow-hidden text-3xl">
+				<span class="inline-block animate-hero">
+					for your special day
+				</span>
+			</span>
+		</h1>
+	</HeroMidScreen5050>
 
-				<Card 
-					href="#" 
-					linkText='Click me'
-					linkClass='mx-2'
-					class='drop-shadow shadow-md shadow-slate-200'
-					img={{
-						src : 'https://source.unsplash.com/random/300x200?space',
-						alt : "card",
-						width : 100,
-						height : 100
-					}}
-					
-				>
-					<h3 slot="heading" class="px-2">
-						Tolestias quae veniam quibusdam?
-					</h3>
 
-					<p slot="content" class="px-2">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, voluptas!
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, voluptas!
-					</p>
-				</Card>
 
-				<Card
-					clickable={true} 
-					href="#" 
-					linkText='Click me'
-					linkClass='mx-2'
-					class="drop-shadow shadow-md shadow-slate-200"
-					img={{
-						src : "https://source.unsplash.com/random/300x200?city",
-						alt : "card",
-						width : 100,
-						height : 100
-					}}
-						
+	<section id="intro">
+
+		<Wrapper width='max' padding='both' class="grid sm:grid-cols-[200px_1fr] sm:gap-8 items-center">
+
+			<div>
+				<Image props
+					src='/img/cake-doodle.webp'
+					width={249}
+					height={265}
+					alt='Cake doodle'
+					class='mx-auto'
 				>
 
-					<h3 slot="heading" class="px-2">Lorem ipsum dolor sit.</h3>
+				</Image>
+			</div>
 
-					<p slot="content" class="px-2">Lorem ipsum dolor sit amet consectetur amet consectetur amet consectetur, adipisicing elit. Recusandae, provident. Repudiandae ipsa deserunt nemo veniam unde repellendus quo possimus porro?</p>
-				</Card>
+			<div class="py-8">
+				<h2 class="font-stylized text-3xl">Welcome to Kelly Ann Creations,</h2>
+				<p class="max-w-[60ch]">
+					where dreams take the form of sweet masterpieces. We believe that your wedding day deserves nothing short of perfection, and our custom wedding cakes are the heart and soul of your celebration. From classic elegance to modern marvels, our cakes are meticulously crafted to reflect your unique love story. Join us on a delightful journey of taste and beauty, as we create the perfect centerpiece for your special day.
+				</p>
+			</div>
 
-				<Card
-					clickable={true} 
-					href="#" 
-					linkText='Click me'
-					linkClass='mx-2'
-					class="drop-shadow shadow-md shadow-slate-200"
-					img={{
-						src : "https://source.unsplash.com/random/300x200?weather",
-						alt : "card",
-						width : 100,
-						height : 100
-					}}
-						
-				>
-
-					<h3 slot="heading" class="px-2">Lorem ipsum dolor sit.</h3>
-
-					<p slot="content" class="px-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, provident. Repudiandae ipsa deserunt nemo veniam unde repellendus quo possimus porro?</p>							
-					
-				</Card>
-
-				<Card
-					clickable={true} 
-					href="#" 
-					linkText='Click me'
-					linkClass='mx-2'
-					class="drop-shadow shadow-md shadow-slate-200"
-					img={{
-						src : "https://source.unsplash.com/random/300x200?nature",
-						alt : "card",
-						width : 100,
-						height : 100
-					}}
-						
-				>
-
-					<h3 slot="heading" class="px-2">Lorem ipsum dolor sit.</h3>
-
-					<p slot="content" class="px-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, provident. Repudiandae ipsa deserunt nemo veniam unde repellendus quo possimus porro?</p>							
-					
-				</Card>
-
-			</EvenColumns>
 		</Wrapper>
+
 	</section>
 
-	<section>
-		<Wrapper props width="max" padding="both">
 
-			<h2 class="py-6">
-				Aliquam Incidunt, alias facere?
+
+	<section>
+
+		<Wrapper width='max' padding='both' class="mb-16">
+
+			<h2 class="flex flex-wrap md:flex-nowrap gap-8 font-stylized text-5xl text-primary-400 mb-8 md:mb-0">
+
+				<span class="w-full md:w-auto md:min-w-max">
+					Craftsmanship &<br />
+					Passion
+				</span>
+
+				<svg width="718" height="6" viewBox="0 0 718 6" fill="none" xmlns="http://www.w3.org/2000/svg" class=" md:mt-6">
+					<path d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM712.333 3.00006C712.333 4.47282 713.527 5.66673 715 5.66673C716.473 5.66673 717.667 4.47282 717.667 3.00006C717.667 1.5273 716.473 0.333396 715 0.333395C713.527 0.333395 712.333 1.5273 712.333 3.00006ZM3 3.5L715 3.50006L715 2.50006L3 2.5L3 3.5Z" fill="#4299BD"/>
+				</svg>
+					
 			</h2>
 
-			<EvenColumns class="gap-6">
+			<div class="grid md:grid-cols-4 gap-8">
 
-				<TextFlow>
-					<h3>Lorem ipsum dolor</h3>
+				<div 
+					class="bg-[hsl(var(--primary-color)_97%)] 
+						   md:row-span-full md:col-start-1 md:col-span-2 
+						   rounded-2xl scale-y-125 -z-10 s
+					" 
+				/>
 
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, velit? Eaque magni doloribus eligendi, 
-						
-					<p>Q modi commodi, vero non assumenda accusantium explicabo quos tenetur voluptas molestias culpa repellendus hic iusto beatae reprehenderit? Voluptatum eligendi eos praesentium odio animi numquam vitae maiores unde aliquid.</p>
-				</TextFlow>
+				<p class=" md:col-start-2 md:row-span-full md:col-span-2 grid-rows-1">
+					At Kelly Ann Creations, we pour our heart and soul into every cake we create. With years of experience and a passion for the art of baking, our team of talented cake artists meticulously handcraft each cake to ensure it's a true reflection of your love and personality. From the first sketch to the final decorative flourish, every step of the process is infused with creativity and care.
+				</p>
 
-				<TextFlow>
-					<h3>Consectetur adipisicing elit</h3>
+				<Image
+					src="/img/cupcakes.webp"
+					width={353}
+					height={191}
+					alt="Custom cupcakes"
+					class="md:row-span-full md:col-start-4 md:col-span-1 grid-row"
+				/>
 
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, velit? Eaque magni doloribus eligendi, quas ipsam maxiuam sint, modi commodi.
-						
-					<p>Vero non assumenda accusantium explicabo quos tenetur voluptas molestias culpa repellendus hic iusto beatae repreheum odio animi numquam vitae maiores unde aliquid.</p>
-				</TextFlow>
+			</div>
 
-				<TextFlow>
-					<h3>Accusantium, cumque!</h3>
-
-					<p>Maxime esse repudiandae eos aliquam sint, modi commodi, vero non assumenda accusantium explicabo quos tenetur voluptas molestias culpa repellendus hic iusto beatae reprehenderit? Voluptatum eligendi eos praesentium odio animi numquam vitae maiores unde aliquid.</p>
-					
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, asperiores.</p>
-				</TextFlow>
-
-			</EvenColumns>
 		</Wrapper>
-	</section>
-	
 
-	<section class="bg-primary-800 text-primary-100">
-		<Wrapper width="text" padding="both">
-			<TextFlow>
-				<h2>Heading and Paragraph Exammples</h2>
-		
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-		
-				<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, cumque!</h2>
-		
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, velit? Eaque magni doloribus eligendi, quas ipsam maxime esse repudiandae eos aliquam sint, modi commodi, vero non assumenda accusantium explicabo quos tenetur voluptas molestias culpa repellendus hic iusto beatae reprehenderit? Voluptatum eligendi eos praesentium odio animi numquam vitae maiores unde aliquid.</p>
-
-				<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, consequatur.</h3>
-
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis corporis non cupiditate quae necessitatibus! Qui sapiente quae libero incidunt laudantium.</p>
-
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-
-				<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, magnam.</h4>
-
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-
-				<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, magnam.</h5>
-
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-				
-				<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, magnam.</h6>
-
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur neque iure unde nisi repudiandae pariatur consectetur ipsa quia quaerat laborum rem impedit optio illo, hic, aliquid repellendus cupiditate, ratione quasi?</p>
-			</TextFlow>
-		</Wrapper>
 	</section>
 
-	<section>
-		<Wrapper width="text" padding='both'>
-			<TextFlow>
-				<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt voluptatibus omnis ex. Nihil laboriosam facere distinctio ea neque aperiam consequatur optio soluta a temporibus, possimus voluptates earum quaerat! Illum enim odit harum nulla! Tempore repudiandae suscipit quaerat nostrum consequatur itaque ipsa, debitis inventore consectetur a placeat, explicabo praesentium impedit?</p>
-				<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis incidunt voluptatibus omnis ex. Nihil laboriosam facere distinctio ea neque aperiam consequatur optio soluta a temporibus, possimus voluptates earum quaerat! Illum enim odit harum nulla! Tempore repudiandae suscipit quaerat nostrum consequatur itaque ipsa, debitis inventore consectetur a placeat, explicabo praesentium impedit?</p>
-			</TextFlow>
+
+
+	<section id="cakes" class="bg-secondary-800 text-primary-200">
+
+		<Wrapper padding='both' width='max' class="grid sm:grid-cols-[2fr_1fr]">
+
+			<h2 class="sm:order-2 font-stylized sm:text-right text-5xl mb-6 sm:mb-0">
+				Your Dream <br />
+				Wedding Cake
+			</h2>
+
+			<p class="sm:order-1 ">
+				Your wedding cake is more than just dessert; it's a symbol of your love, your commitment, and your journey together. Our skilled artisans work closely with you to design a one-of-a-kind cake that surpasses your wildest dreams. Whether you envision a romantic fairytale design, a modern and chic masterpiece, or a whimsical fantasy creation, we bring your vision to life with an exquisite touch.
+			</p>
+
 		</Wrapper>
+
+
 	</section>
 
-	<section>
-		<Wrapper width="text" padding="both">
-			<Image props 
-				src="/img/hero.jpg"
-				alt="hero"
-				width={100}
-				height={100}
-				lazy
-				bgColor='red'
-			/>
-		</Wrapper>
-	</section>
+
+	<section class="py-16 px-2">
+
+		<Wrapper width='max' class="grid grid-cols-3 md:grid-cols-6 gap-0 items-stretch h-[275px] rounded-[2rem] overflow-hidden">
+
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-1.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
 			
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-2.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
+
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-3.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
+
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-4.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
+
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-5.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
+
+			<div class="overflow-hidden">
+				<Image
+					src="/img/cake-6.webp"
+					width={188}
+					height={368}
+					alt="A delicious wedding cake"
+					class="object-cover h-full w-full hover:scale-105 hover:-translate-y-2 transition-all duration-300"
+				/>
+			</div>
+
+
+		</Wrapper>
+
+
+	</section>
+
+	<section>
+
+		<Wrapper width="max" padding='both' class="grid sm:grid-cols-2 lg:grid-cols-[1fr_2fr] gap-4">
+
+			<div>
+
+				<h2 class="mb-4 font-stylized text-[2.75rem] text-primary-400">Flavours to Savour</h2>
+				
+				<Image
+					src="/img/bride-cutting-cake.webp"
+					width={478}
+					height={474}
+					alt="Bride cutting a cake."
+					class='w-full sm:w-full max-h-[300px] md:max-h-none object-cover rounded-3xl'
+				/>
+			</div>
+
+			<TextFlow class="border border-primary-200 rounded-3xl p-6 md:p-20">
+				
+				<p>
+					Taste is just as crucial as appearance when it comes to our wedding cakes. We offer an extensive array of delectable flavors, ranging from classic vanilla and rich chocolate to indulgent raspberry swirl and zesty lemon delight. Our commitment to quality means we use only the finest ingredients, ensuring every bite is a moment of pure bliss for you and your guests.
+				</p>
+
+				<p>
+					Getting your dream wedding cake is a seamless and enjoyable experience with Kelly Ann Creations. From your initial consultation to the moment you see your cake on your special day, we are here to make the process easy and stress-free. Our team will guide you through the design options, assist with flavor choices, and handle every detail with utmost precision.
+				</p>
+				
+			</TextFlow>
+
+		</Wrapper>
+
+	</section>
+
+
+
+	<section id="pricing" class="bg-primary-200 text-primary-900">
+
+		<Wrapper width='max' padding='both'>
+
+			<h2 class="font-stylized text-4xl mb-8">
+				Pricing Process
+			</h2>
+
+			<div class="grid sm:grid-cols-2 gap-8">
+
+				<div class="rounded-2xl border border-primary-300 p-6">
+					<h3 class="font-stylized text-xl mb-2">
+						1. Consultation
+					</h3>
+
+					<p>
+						We kick off the process with a complimentary consultation where you can share your vision, preferences, and any specific themes or inspirations. Our skilled cake artists will work closely with you to understand your dream cake in detail.
+					</p>
+				</div>
+
+				<div class="rounded-2xl border border-primary-300 p-6">
+					<h3 class="font-stylized text-xl mb-2">
+						2. Design & Creation
+					</h3>
+
+					<p>
+						Based on our consultation, our talented team will create a customized design proposal that captures your ideas. We'll present you with sketches, color palettes, and design elements to ensure we're on the same page.
+					</p>
+				</div>
+
+				<div class="rounded-2xl border border-primary-300 p-6">
+					<h3 class="font-stylized text-xl mb-2">
+						3. Personalized Quote
+					</h3>
+
+					<p>
+						Once the design is refined to perfection, we will provide you with a personalized quote tailored to the size, intricacy, and design elements of your cake. Our pricing is competitive and transparent, giving you a clear understanding of the investment required for your masterpiece.
+					</p>
+				</div>
+
+				<div class="rounded-2xl border border-primary-300 p-6">
+					<h3 class="font-stylized text-xl mb-2">
+						4. Delivery & Setup
+					</h3>
+					
+					<p>
+						On your special day, we take care of every detail. Our team will ensure your custom cake is delivered and set up flawlessly at your venue, giving you peace of mind to focus on creating beautiful memories.
+					</p>
+				</div>
+
+			</div>
+
+
+
+		</Wrapper>
+
+
+
+
+
+
+	</section>
+
+
+
+	<section class="bg-[url('/img/cake-glasses.webp')] bg-cover bg-[#232523] bg-bottom min-h-screen grid place-items-center">
+
+		<TextFlow class="bg-primary-100 bg-opacity-90 w-[90%] max-w-[600px] py-16 px-4 md:px-16 text-center">
+			
+			<h2 class="font-stylized text-3xl">
+				Your perfect wedding cake awaits!
+			</h2>
+
+			<p>
+				Contact us today to schedule your complimentary consultation and let's begin creating the centerpiece of your dreams.
+			</p>
+
+			<a href="#contact" class="lenis-link inline-block rounded-xl bg-primary-800 text-primary-100 text-2xl px-16 py-4 font-stylized ">
+				Order Now
+			</a>
+		</TextFlow>
+
+	</section>
+
+
+
+	<section id="contact">
+
+		<Wrapper padding='both' class="w-full max-w-[500px]">
+
+			<h2 class="text-4xl font-stylized mb-8">
+				Contact Kelly
+			</h2>
+
+			<NetlifyForm name="kac-contact-form" subject="Kelly Ann Creations website inquiry">
+
+				<FormField name="Name" type="text" required />
+
+				<FormField name="Email" type="email" required />
+
+				<FormField name="Phone" type="tel" required />
+
+				<FormField name="Message" label="How can I help you today?"  type="textarea" required />
+
+				<FormSubmit>Send Message</FormSubmit>
+
+			</NetlifyForm>
+
+		</Wrapper>
+
+	</section>
+
+
 
 </LandingPageLayout>
 
+
+<script is:inline src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
+
 <script>
-	if (window.netlifyIdentity) {
-	  window.netlifyIdentity.on("init", user => {
-		if (!user) {
-		  window.netlifyIdentity.on("login", () => {
-			document.location.href = "/admin/";
-		  });
-		}
-	  });
-	}
-  </script>
+
+const lenis = new Lenis()
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+const lenisLinks = document.querySelectorAll('.lenis-link')
+lenisLinks.forEach(link => link.addEventListener('click', () => {
+	lenis.scrollTo(link.hash)
+}))
+
+
+</script>

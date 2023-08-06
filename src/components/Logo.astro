@@ -18,11 +18,15 @@ const {
 } = Astro.props
 ---
 
-<Link to="/">
-    <div class={`flex items-center gap-2 font-semibold text-xl stroke-[var(--nav-bar-logo-color)] ${className}`}>
+<Link to="#home" class="lenis-link">
+    <div class={`flex items-center gap-0 text-xl stroke-[var(--nav-bar-logo-color)] ${className}`}>
     
         <Image src={ HEADER_LOGO_PATH } alt={SITE_FULL_NAME} width={HEADER_LOGO_DIMENSIONS.width} height={HEADER_LOGO_DIMENSIONS.height} />
-        {LOGO_NAME}
+
+        <span class="">
+            {LOGO_NAME}
+        </span>
 
     </div>
 </Link>    
+

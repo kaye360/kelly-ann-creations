@@ -4,7 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily : {
-				'sans' : ['Helvetica']
+				base : ['Lato', 'Helvetica', 'sans-serif'],
+				stylized : ['Luxia', 'Helvetica', 'sans-serif']
 			},
 			colors : {
 				"primary" : {
@@ -46,6 +47,20 @@ module.exports = {
 			},
 			backgroundImage : {
 				'radial-gradient' : 'radial-gradient(var(--tw-gradient-stops))'
+			},
+			animation : {
+				'hero' : 'hero-anim 800ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+				'hero-img' : 'hero-img-anim 500ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+			},
+			keyframes : {
+				'hero-anim' : {
+					'0%'   : { transform : 'translateY(100%)', opacity : '0' },
+					'100%' : { transform : 'translateY(0%)', opacity : '1' }
+				},
+				'hero-img-anim' : {
+					'0%'   : { transform : 'translateY(50%)', opacity : '0' },
+					'100%' : { transform : 'translateY(0%)', opacity : '1' }
+				},
 			}
 		},
 	},

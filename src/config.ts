@@ -13,29 +13,29 @@ export const SITE_URL = 'http://'
 
 export const SITE_BASE_PATH = '/'
 
-export const SITE_FULL_NAME = 'Full Cool Site Name Ltd.'
+export const SITE_FULL_NAME = 'Kelly Ann Creations'
 
-export const SITE_SHORT_NAME = 'Cool Site'
+export const SITE_SHORT_NAME = 'Kelly Ann Creations'
 
 export const LOGO_NAME = SITE_SHORT_NAME
 
-export const PHONE_NUMBER = '604-533-1234'
+export const PHONE_NUMBER = ''
 
-export const EMAIL_ADDRESS = 'email@email.com'
+export const EMAIL_ADDRESS = ''
 
-export const LOCATION = 'Port Coquitlam, BC'
+export const LOCATION = ''
 
-export const ADDRESS = '123 Address St, City, BC'
+export const ADDRESS = ''
 
 export const HEADER_LOGO_PATH = '/img/logo.svg'
 
-export const HEADER_LOGO_DIMENSIONS = { width : 28, height : 28 }
+export const HEADER_LOGO_DIMENSIONS = { width : 50, height : 50 }
 
 export const HERO_IMG_PATH = '/img/hero.webp'
 
 export const HERO_IMG_ALT_TEXT = 'Hero image alt text'
 
-export const HERO_IMG_DIMENSIONS = { width : 200, height : 100 }
+export const HERO_IMG_DIMENSIONS = { width : 602, height : 508 }
 
 export const FAVICON_PATH = '/meta-img/favicon.svg'
 
@@ -58,24 +58,16 @@ export interface Page {
 /** Note: There can only be 1 Call to Action link */
 export const PAGES : Page[] = [
     {
-        title            : 'Home',
-        path             : '/',
+        title            : 'Cakes',
+        path             : '#cakes',
         mainNav          : true,
         footerNav        : true,
         cta              : false,
         ignoreLangPrefix : true
     },
     {
-        title            : 'About',
-        path             : '/about',
-        mainNav          : true,
-        footerNav        : true,
-        cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Products',
-        path             : '/products',
+        title            : 'Pricing',
+        path             : '#pricing',
         mainNav          : true,
         footerNav        : true,
         cta              : false,
@@ -83,50 +75,10 @@ export const PAGES : Page[] = [
     },
     {
         title            : 'Contact',
-        path             : '/contact',
+        path             : '#contact',
         mainNav          : true,
         footerNav        : true,
         cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Form',
-        path             : '/form',
-        mainNav          : true,
-        footerNav        : true,
-        cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Store',
-        path             : '/store',
-        mainNav          : true,
-        footerNav        : true,
-        cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Privacy Policy',
-        path             : '/privacy',
-        mainNav          : false,
-        footerNav        : true,
-        cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Admin',
-        path             : '/admin/index.html',
-        mainNav          : false,
-        footerNav        : true,
-        cta              : false,
-        ignoreLangPrefix : true
-    },
-    {
-        title            : 'Call to Action',
-        path             : '/cta',
-        mainNav          : true,
-        footerNav        : true,
-        cta              : true,
         ignoreLangPrefix : true
     },
 ]

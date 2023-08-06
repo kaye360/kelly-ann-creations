@@ -1,0 +1,141 @@
+---
+import { HERO_IMG_ALT_TEXT, HERO_IMG_DIMENSIONS, HERO_IMG_PATH } from "../../config";
+import Wrapper from "../Wrapper.astro";
+import Image from "../Image.astro"
+
+interface Props {
+    subheading : string,
+    primaryCTAText : string,
+    primaryCTAIcon? : string,
+    primaryCTALink : string,
+    secondaryCTAText : string,
+    secondaryCTALink : string,
+    secondaryCTAIcon? : string,
+    align? : 'center' | 'left' | 'right'
+    
+    /**
+     * @prop subheading (string)
+     * @prop primaryCTAText (string)
+     * @prop primaryCTAIcon (string)
+     * @prop primaryCTALink (string)
+     * @prop secondaryCTAText (string)
+     * @prop secondaryCTALink (string)
+     * @prop secondaryCTAIcon (string)
+     * @prop align : 'center' | 'left' (Default) | 'right'
+     * @prop slot (heading)
+     */
+    props? : true
+}
+
+const {
+    subheading = 'hi',
+    primaryCTAText,
+    primaryCTALink,
+    secondaryCTAText,
+    secondaryCTALink,
+    align = 'left'
+} = Astro.props
+
+---
+
+
+
+<section id="home" class="">
+
+    <Wrapper 
+        width="max" 
+        padding="both"
+        class={`
+            hero-wrapper grid sm:grid-cols-2 gap-8 items-center border border-primary-100 rounded-2xl
+            before:content-[''] before:absolute before:inset-[0_0_10vh_37vw] sm:before:inset-[0_0_0_37vw]  before:bg-primary-100 before:-z-10 before:rounded-bl-[3rem] before:max-h-[600px]
+        `}
+    >
+    
+        <div class={`grid gap-8 order-2 sm:order-1 text-center sm:text-left items-start`}>
+
+            <slot name="heading" />
+                
+            <p class="overflow-hidden">
+                <span class="inline-block animate-hero">
+                    {subheading} 
+                </span>
+            </p>
+
+            <div class={`
+                flex items-center gap-4 flex-wrap overflow-hidden
+                ${align === 'center' ? 'justify-center' : ''}
+            `}>
+                
+                <a href={primaryCTALink} class="lenis-link primary-hero-CTA w-full sm:w-auto justify-center sm:justify-start animate-hero">
+                    <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 -1.88637e-05C0.734784 -1.88637e-05 0.48043 0.105338 0.292893 0.292875C0.105357 0.480411 0 0.734765 0 0.999981C0 1.2652 0.105357 1.51955 0.292893 1.70709C0.48043 1.89462 0.734784 1.99998 1 1.99998H3.22L5.844 12.5C6.067 13.39 6.864 14 7.781 14H20.251C21.154 14 21.921 13.4 22.158 12.53L24.75 2.99998H22.656L20.25 12H7.78L5.157 1.49998C5.04865 1.06921 4.79888 0.687259 4.44768 0.415295C4.09648 0.14333 3.66418 -0.00291397 3.22 -1.88637e-05H1ZM19 14C17.355 14 16 15.355 16 17C16 18.645 17.355 20 19 20C20.645 20 22 18.645 22 17C22 15.355 20.645 14 19 14ZM10 14C8.355 14 7 15.355 7 17C7 18.645 8.355 20 10 20C11.645 20 13 18.645 13 17C13 15.355 11.645 14 10 14ZM13 -1.88637e-05V4.99998H10L14 8.99998L18 4.99998H15V-1.88637e-05H13ZM10 16C10.564 16 11 16.436 11 17C11 17.564 10.564 18 10 18C9.436 18 9 17.564 9 17C9 16.436 9.436 16 10 16ZM19 16C19.564 16 20 16.436 20 17C20 17.564 19.564 18 19 18C18.436 18 18 17.564 18 17C18 16.436 18.436 16 19 16Z" fill="currentColor"/>
+                    </svg>
+                        
+                    {primaryCTAText}
+                </a>
+                
+                <a href={secondaryCTALink} class="lenis-link secondary-hero-CTA w-full sm:w-auto justify-center sm:justify-start animate-hero">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.8285 12.0259L16.2427 13.4402L12 17.6828L7.7574 13.4402L9.17161 12.0259L11 13.8544V6.31724H13V13.8544L14.8285 12.0259Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M19.7782 19.7782C15.4824 24.0739 8.51759 24.0739 4.22183 19.7782C-0.0739417 15.4824 -0.0739417 8.51759 4.22183 4.22183C8.51759 -0.0739419 15.4824 -0.0739419 19.7782 4.22183C24.0739 8.51759 24.0739 15.4824 19.7782 19.7782ZM18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C2.12132 14.8492 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C21.8787 9.15076 21.8787 14.8492 18.364 18.364Z" fill="currentColor" /></svg>
+                    {secondaryCTAText}
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="order-1 sm:order-2 overflow-hidden">
+            <Image src={HERO_IMG_PATH} width={HERO_IMG_DIMENSIONS.width} height={HERO_IMG_DIMENSIONS.height} alt={HERO_IMG_ALT_TEXT} class="max-h-[250px] sm:max-h-none object-cover rounded-3xl animate-hero-img" />
+        </div>
+        
+
+    </Wrapper>
+
+</section>
+
+
+<style>
+
+h1 {
+    max-width : 20ch;
+    font-size: 2.5rem !important;
+    line-height: 2.8rem;
+    letter-spacing: 0.05rem;
+    font-weight: 900 !important;
+    color : var(--hero-text-color);
+}
+
+p {
+    font-size : 1.3rem;
+    color : var(--hero-text-color);
+}
+
+.primary-hero-CTA,
+.secondary-hero-CTA {
+    display : flex;
+    align-items: center;
+    gap : 0.75rem;
+    padding : 0.75rem 1.25rem;
+    font-weight : 600;
+    letter-spacing: 0.05rem;
+    border-radius: 0.75rem;
+}
+
+.primary-hero-CTA {
+    background-color : var(--hero-CTA-bg-color);
+    color : var(--hero-CTA-text-color);
+}
+
+.primary-hero-CTA:hover, .primary-hero-CTA:focus {
+    background-color : var(--hero-CTA-bg-color-hover);
+    color : var(--hero-CTA-text-color-hover);
+}
+
+.secondary-hero-CTA {
+    color : var(--hero-CTA-bg-color);
+}
+
+.secondary-hero-CTA:hover, .secondary-hero-CTA:focus {
+    text-decoration: underline;
+}
+
+</style>

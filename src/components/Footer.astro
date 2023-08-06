@@ -11,52 +11,8 @@ import Link from "./Link.astro";
 ---
 
 <footer>
-    <Wrapper padding="inline" width="max">
-        <EvenColumns props class="gap-x-36 gap-y-12">
-
-            <div class="px-8">
-                <Logo />
-
-                <TextFlow class="mt-4">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, libero.</p>
-                    <p>Odit, libero. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </TextFlow>
-            </div>
-
-            <EvenColumns class="gap-y-12 gap-x-6 bg-primary-100 px-8 py-6">
-
-                <nav>
-                    <h2>Links</h2>
-                    <ul>
-                        { PAGES.map( (page) => ( 
-                            page.footerNav && <li><Link to={page.path} ignoreLangPrefix={page.ignoreLangPrefix}>{page.title}</Link></li>
-                        ))}
-                    </ul>
-                </nav>
-                
-                <nav>
-                    <h2>Contact</h2>
-                    <ul>
-                        { CONTACT_LINKS.map( (link) => ( 
-                            <li>
-                                {link.icon && <Icon icon={link.icon} /> }
-                                {link.path ? (
-                                    <a href={link.path}>{link.title}</a>
-                                ) : (
-                                    link.title 
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
-            </EvenColumns>
-
-        </EvenColumns>
-
-        <div class="text-center pt-16">
-            &copy; <span id="footer-date">2023</span> {SITE_FULL_NAME}
-        </div>
+    <Wrapper padding="block">
+        <Logo class="mx-auto w-fit" />
     </Wrapper>
 </footer>
 
