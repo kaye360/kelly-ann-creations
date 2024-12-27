@@ -199,7 +199,7 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 
 
 			<div class="hidden md:block relative" role="presentation">
 				<div 
-					class="sticky top-24 text-text/20 text-6xl font-theme min-w-max rotate-90 origin-left"
+					class="sticky top-24 text-text/20 text-6xl font-theme  min-w-max rotate-90 origin-left"
 					role="presentation"
 				>
 					Made from scratch
@@ -210,9 +210,8 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 
 
 	</Section>
 
-	<Section width='full' class="bg-bg-light relative h-screen">
+	<Section width='full' class="relative">
 
-		<div class="sticky top-64 py-8">
 			<H2 class="text-center">
 				Why choose Kelly Ann Creations?
 			</H2>
@@ -277,115 +276,115 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 
 	
 			</div>
 
-		</div>
+			<div class="absolute top-[15%] md:top-0 left-0 w-3/4 md:w-1/2 h-[85%] md:h-full -z-10 bg-bg-mid">
+			</div>
 
-		<div class="hidden md:block h-2/3 w-1/2 bg-bg-mid" />
 
 	</Section>
 
-	<div class="h-screen">hello</div>
+	<Section>
+		Hi
+	</Section>
 
 </Layout>
 
 <script>
-
-	window.addEventListener('load', () => {
-		const learnMoreLink = document.querySelector('a[href="#more"]')
-		const moreSection   = document.querySelector('#more')
-
-		learnMoreLink?.addEventListener('click', e => {
-			// @ts-ignore
-			if( !window.locomotiveScroll ) {
-				return
-			}
-			e.preventDefault()
-			// @ts-ignore
-			window.locomotiveScroll.scrollTo('#more')
-		})
+document.addEventListener('astro:page-load', () => {
+	const learnMoreLink = document.querySelector('a[href="#more"]')
+	
+	learnMoreLink?.addEventListener('click', e => {
+		// @ts-ignore
+		if( !window.locomotiveScroll ) {
+			return
+		}
+		e.preventDefault()
+		// @ts-ignore
+		window.locomotiveScroll.scrollTo('#more')
 	})
+})
 </script>
 
 <script>
 
+document.addEventListener('astro:page-load', () => {
+	// Source: https://codepen.io/zadvorsky/pen/PwyoMm/
+	
+	let viewWidth : number
+	let viewHeight : number
+	let canvas = document.getElementById("hero-canvas") as HTMLCanvasElement
+	let canvasContext : CanvasRenderingContext2D | null
+	
+	// change these settings
+	let patternSize = 150
+	let patternScaleX = 2
+	let patternScaleY = 2
+	let patternRefreshInterval = 12
+	let patternAlpha = 15 // int between 0 and 255,
+	
+	let patternPixelDataLength = patternSize * patternSize * 4
+	let patternCanvas : any
+	let patternCtx : any
+	let patternData : any
+	let frame = 0
+	
+	initCanvas();
+	initGrain();
+	requestAnimationFrame(loop);
+	
+	// create a canvas which will render the grain
+	function initCanvas() {
+		viewWidth = canvas.width = canvas.clientWidth;
+		viewHeight = canvas.height = canvas.clientHeight;
+		canvasContext = canvas.getContext('2d') as CanvasRenderingContext2D;
+		canvasContext.scale(patternScaleX, patternScaleY);
+	}
+	
+	// create a canvas which will be used as a pattern
+	function initGrain() {
+		patternCanvas = document.createElement('canvas');
+		patternCanvas.width = patternSize;
+		patternCanvas.height = patternSize;
+		patternCtx = patternCanvas.getContext('2d');
+		patternData = patternCtx.createImageData(patternSize, patternSize);
+	}
+	
+	// put a random shade of gray into every pixel of the pattern
+	function update() {
+		var value;
+	
+		for (var i = 0; i < patternPixelDataLength; i += 4) {
+			value = (Math.random() * 255) | 0;
+	
+			patternData.data[i    ] = value;
+			patternData.data[i + 1] = value;
+			patternData.data[i + 2] = value;
+			patternData.data[i + 3] = patternAlpha;
+		}
+	
+		patternCtx.putImageData(patternData, 0, 0);
+	}
+	
+	// fill the canvas using the pattern
+	function draw() {
+	
+		if( ! canvasContext ) return
+	
+		canvasContext.clearRect(0, 0, viewWidth, viewHeight);
+	
+		// @ts-ignore
+		canvasContext.fillStyle = canvasContext.createPattern(patternCanvas, 'repeat');
+		canvasContext.fillRect(0, 0, viewWidth, viewHeight);
+	}
+	
+	function loop() {
+		if (++frame % patternRefreshInterval === 0) {
+			update();
+			draw();
+		}
+	
+		requestAnimationFrame(loop);
+	}
 
-// Source: https://codepen.io/zadvorsky/pen/PwyoMm/
-
-let viewWidth : number
-let viewHeight : number
-let canvas = document.getElementById("hero-canvas") as HTMLCanvasElement
-let canvasContext : CanvasRenderingContext2D | null
-
-// change these settings
-let patternSize = 150
-let patternScaleX = 2
-let patternScaleY = 2
-let patternRefreshInterval = 12
-let patternAlpha = 15 // int between 0 and 255,
-
-let patternPixelDataLength = patternSize * patternSize * 4
-let patternCanvas : any
-let patternCtx : any
-let patternData : any
-let frame = 0
-
-window.addEventListener('load', function() {
-    initCanvas();
-    initGrain();
-    requestAnimationFrame(loop);
 })
-
-// create a canvas which will render the grain
-function initCanvas() {
-    viewWidth = canvas.width = canvas.clientWidth;
-    viewHeight = canvas.height = canvas.clientHeight;
-    canvasContext = canvas.getContext('2d') as CanvasRenderingContext2D;
-    canvasContext.scale(patternScaleX, patternScaleY);
-}
-
-// create a canvas which will be used as a pattern
-function initGrain() {
-    patternCanvas = document.createElement('canvas');
-    patternCanvas.width = patternSize;
-    patternCanvas.height = patternSize;
-    patternCtx = patternCanvas.getContext('2d');
-    patternData = patternCtx.createImageData(patternSize, patternSize);
-}
-
-// put a random shade of gray into every pixel of the pattern
-function update() {
-    var value;
-
-    for (var i = 0; i < patternPixelDataLength; i += 4) {
-        value = (Math.random() * 255) | 0;
-
-        patternData.data[i    ] = value;
-        patternData.data[i + 1] = value;
-        patternData.data[i + 2] = value;
-        patternData.data[i + 3] = patternAlpha;
-    }
-
-    patternCtx.putImageData(patternData, 0, 0);
-}
-
-// fill the canvas using the pattern
-function draw() {
-
-	if( ! canvasContext ) return
-
-    canvasContext.clearRect(0, 0, viewWidth, viewHeight);
-
-	// @ts-ignore
-	canvasContext.fillStyle = canvasContext.createPattern(patternCanvas, 'repeat');
-    canvasContext.fillRect(0, 0, viewWidth, viewHeight);
-}
-
-function loop() {
-    if (++frame % patternRefreshInterval === 0) {
-        update();
-        draw();
-    }
-
-    requestAnimationFrame(loop);
-}
 
 </script>

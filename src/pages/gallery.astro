@@ -1,0 +1,59 @@
+---
+import H1 from "../components/H1.astro";
+import Section from "../components/Section.astro";
+import TextBlock from "../components/TextBlock.astro";
+import Layout from "../layouts/Layout.astro";
+
+const imageTitles = [
+    'A wedding cake for Rory and Fiona',
+    'Cupcakes for Sara',
+    'Cookies for a birthday party',
+    'Lindsay\'s 9th birthday cake',
+    'Cupcakes for a birthday party',
+    'Sarah and Tyler\'s wedding cake',
+    'A cake for a fall wedding',
+    'Cookies galore!',
+]
+
+---
+
+<Layout>
+
+
+    <H1>Photo Gallery</H1>
+
+    <Section>
+        <TextBlock class="mx-auto">
+            <p>
+                Explore the gallery and see the artistry and quality behind our freshly baked cakes, cookies, and pastries with passion and the finest ingredients and a touch of love.
+            </p>
+        </TextBlock>
+    </Section>
+
+    <Section py="none">
+        <div class="grid md:grid-cols-2 gap-x-4 gap-y-8">
+            { imageTitles.map( (title, i) => (
+                <div class="grid">
+                    <img 
+                        src={`/gallery/${i+1}.webp`}
+                        width="690"
+                        height="690"
+                        alt={title}
+                        loading="lazy"
+                        role="presentation"
+                        class:list={[
+                            i%2 === 0 ? 'md:order-1' : 'md:order-2'
+                        ]}
+                    />
+                    <div class:list={[
+                        i%2 === 0 ? 'md:order-2 md:pb-36' : 'md:order-1 md:pt-36',
+                        "text-xl font-theme"
+                    ]}>
+                        {title}
+                    </div>
+
+                </div>
+            ))}
+        </div>
+    </Section>
+</Layout>

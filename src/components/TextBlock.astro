@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+    class? : string
+    width? : 'default' | 'wide'
+}
+
+const {
+    class : className,
+    width = "default"
+} = Astro.props
+---
+
+<div class:list={[
+    width === 'default' ? 'max-w-[60ch]' : '',
+    'text-flow', 
+    className
+]}>
+    <slot />
+</div>
+
+
+<style is:global>
+
+.text-flow > * + * {
+    margin-top : 1.3em;
+}
+
+</style>

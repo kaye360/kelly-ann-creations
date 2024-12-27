@@ -1,0 +1,17 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section props width="full" class="bg-[url(/img/hero-background.webp)] text-4xl font-extralight">
+
+    <h1 class="text-center select-none">
+        <span class="inline-block relative">
+            <slot />
+            <div class="absolute top-[115%] -left-1/4 w-1/2 flex items-center">
+                <div class="h-[1px] w-full bg-text" />
+                <div class="rounded-full w-2 h-2 bg-text shrink-0"></div>
+            </div> 
+        </span>
+    </h1>
+
+</Section>

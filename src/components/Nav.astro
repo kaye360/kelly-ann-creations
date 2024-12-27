@@ -1,0 +1,156 @@
+---
+import Logo from "./Logo.astro";
+import Section from "./Section.astro";
+---
+
+<Section py="none" class="py-8 md:py-8 h-24 md:h-auto">
+
+    <div id="nav-bg"></div>
+    <nav>
+
+        <button id="mobile-menu-close-button" class="stroke-1 active:scale-90 p-2">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 15.4561L15.5721 0.883929" stroke="black" stroke-linecap="round"/>
+                <path d="M1.15576 0.753418L15.7279 15.3255" stroke="black" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <Logo />
+
+        <button class="sm:hidden text-text p-2 active:scale-90" id="mobile-menu-open-button">
+            <svg width="38" height="10" viewBox="0 0 38 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.5H37" stroke="black" stroke-linecap="round" stroke="currentColor" />
+                <path d="M1 9.5H37" stroke="black" stroke-linecap="round" stroke="currentColor" />
+            </svg>
+        </button>
+
+        <ul 
+            id="nav-links"
+            class="hidden text-4xl sm:text-lg font-extralight sm:font-light sm:flex flex-col sm:flex-row items-center gap-4"
+        >
+            <li>
+                <a 
+                    href="/"
+                    class="inline-block px-3 py-1 hover:bg-text hover:text-white transition-colors active:scale-90"
+                >
+                    Home
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="/gallery"
+                    class="inline-block px-3 py-1 hover:bg-text hover:text-white transition-colors active:scale-90"
+                >
+                    Gallery
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="/contact"
+                    class="inline-block px-3 py-1 hover:bg-text hover:text-white transition-colors active:scale-90"
+                >
+                    Contact
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+</Section>
+
+
+<style is:global>
+
+    nav {
+        display : flex;
+        align-items: center;
+        justify-content: space-between;
+        animation : fade-in 1.5s;
+    }
+    
+    [data-mobile-menu="open"] nav {
+        position: fixed;
+        inset : 5rem 3rem auto 3rem;
+        z-index: 100;
+        flex-direction: column;
+        gap : 2rem;
+    }
+    
+    #mobile-menu-close-button {
+        position: absolute;
+        right : 0;
+        top : -2rem;
+        display : none;
+    }
+    
+    [data-mobile-menu="open"] #mobile-menu-close-button {
+        display: block;
+    }
+    
+    [data-mobile-menu="open"] #mobile-menu-open-button {
+        display: none;
+    }
+    
+    #nav-bg {
+        position : fixed;
+        right : 2rem;
+        top : 0rem;
+        z-index: 99;
+        width : calc(100vw - 4rem);
+        height: 0%;
+        transition: all 1.5s cubic-bezier(.01,1.01,.22,.99);
+        backdrop-filter: blur(7px);
+        background-color: hsla(36deg, 20%, 80%, 0.8);
+        opacity: 0;
+    }
+    
+    [data-mobile-menu="open"] #nav-bg {
+        opacity: 1;
+        top : 2rem;
+        height: calc(100vh - 4rem);
+    }
+
+</style>
+
+<script>
+document.addEventListener('astro:page-load', () => {
+
+    const mobileMenuOpenButton = document.querySelector('#mobile-menu-open-button') as HTMLButtonElement
+    const mobileMenuCloseButton = document.querySelector('#mobile-menu-close-button') as HTMLButtonElement
+    const logo = document.querySelector('#logo') as HTMLAnchorElement
+    const navLinks = document.querySelector('#nav-links') as HTMLUListElement
+    const navLinkList = navLinks.querySelectorAll('li')
+    
+    mobileMenuOpenButton.addEventListener('click', () => {
+        setTimeout( () => {
+            document.body.dataset.mobileMenu = 'open'
+            logo.classList.add('flex-col', 'animate-reveal-up-slow')
+            mobileMenuCloseButton.classList.add('animate-fade-in')
+            navLinks.classList.add('flex', '!gap-12')
+            navLinks.classList.remove('hidden')
+        
+            navLinkList.forEach( (link, i) => {
+                link.classList.add('animate-reveal-up-fast') 
+                link.style.animationDelay = i * 300 + 500 + 'ms'
+            })
+        }, 300)
+    })
+    
+    mobileMenuCloseButton.addEventListener('click', () => {
+        setTimeout( () => {
+            document.body.dataset.mobileMenu = 'close'
+            logo.classList.remove('flex-col', 'animate-reveal-up-fast')
+            navLinks.classList.remove('flex', '!gap-12')
+            navLinks.classList.add('hidden')
+        }, 300)
+    })
+})
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+<script>
+    window.addEventListener('load', () => {
+        // @ts-ignore
+        window.locomotiveScroll = new LocomotiveScroll();
+    })
+</script>

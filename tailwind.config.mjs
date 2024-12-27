@@ -10,7 +10,7 @@ export default {
 			},
 			colors : {
 				bg : {
-					light : 'hsl(36deg 20% 92%)',
+					light : 'hsl(36deg 20% 93%)',
 					mid : 'hsl(36deg 20% 89%)',
 					dark : 'hsl(36deg 20% 80%)',
 				},
@@ -18,7 +18,7 @@ export default {
 			},
 			animation : {
 				'reveal-up-slow' : 'reveal-up 3000ms cubic-bezier(.01,1.01,.22,.99) both',
-				'reveal-up-fast' : 'reveal-up 3000ms cubic-bezier(.01,1.01,.22,.99) both',
+				'reveal-up-fast' : 'reveal-up 1500ms cubic-bezier(.01,1.01,.22,.99) both',
 				'fade-in' : 'fade-in 750ms both'
 			},
 			keyframes : {
