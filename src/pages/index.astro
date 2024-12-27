@@ -1,11 +1,378 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import BookNowButton from '../components/BookNowButton.astro';
+import H2 from '../components/H2.astro';
+import H3 from '../components/H3.astro';
+import Icon from '../components/Icon.astro';
+import Section from '../components/Section.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 'lucide'
 ---
 
 <Layout>
-	<Welcome />
+
+	<!-- Hero -->
+	<Section 
+		width='full' 
+		px="none" 
+		class="bg-[url(/img/hero-background.webp)] md:mb-24"
+	>
+
+		<canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+
+		<div class="relative grid grid-cols-[1fr_1.5fr] md:grid-cols-2 gap-3 md:gap-8 items-stretch md:mx-12">
+
+			<div class="hidden absolute right-0 top-0 bottom-0 h-full md:flex flex-col items-center shrink-0 animate-fade-in animate-delay-500 opacity-50">
+				<div class="bg-text/30 w-[1px] h-full" />
+				<div class="bg-text/30 w-2 h-2 rounded-full"></div>
+			</div>
+
+			<div class="relative py-8 md:py-0 text-4xl text-text/30 font-theme animate-reveal-up-slow animate-delay-500">
+				<div class="h-full md:h-auto md:absolute md:top-0 md:right-0">
+					<img 
+						src="/img/hero.webp" 
+						width="400" 
+						height="532" 
+						class="h-full md:h-auto object-cover object-right" 
+						data-scroll data-scroll-speed="-0.05"
+					/>
+					<div class="absolute -left-2 bottom-0 -rotate-90 origin-bottom-left select-none">
+						Local and Independant
+					</div>
+				</div>
+			</div>
+
+			<div 
+				class="grid gap-0 md:gap-8"
+				data-scroll data-scroll-speed="-0.1"
+			>
+
+				<h1 class="font-theme leading-6 text-base md:text-sm max-w-[30ch] mt-6 block order-2 md:order-1 animate-reveal-up-fast animate-delay-500">
+					Kelly is an independent baker in Port Coquitlam, BC dedicated to crafting fresh, artisanal baked goods, bringing joy to every bite.
+				</h1>
+
+				<div class="order-1 md:order-2">
+
+					<p class="text-3xl md:text-4xl font-light md:font-extralight max-w-[18ch] md:leading-[3rem] mb-8 select-none animate-reveal-up-fast animate-delay-500">
+						Enjoy custom, handcrafted baked goods made exactly to your taste
+					</p>
+
+					<div class="flex flex-col md:flex-row items-stretch md:items-center gap-6 text-sm text-center animate-reveal-up-fast animate-delay-500 ">
+
+						<BookNowButton />
+
+						<a 
+							href="#more" 
+							class="flex items-center justify-center gap-2 uppercase hover:opacity-80 hover:underline font-medium active:scale-95"
+						>
+							Learn More
+							<Icon icon={SquareArrowDown} />
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</Section>
+
+	<!-- About -->
+	<Section id="more">
+
+		<!-- Grid for rotated text -->
+		<div class="md:grid md:grid-cols-[1fr_50px] overflow-clip">
+
+			<div>
+				<!-- Wedding cakes that wow -->
+				<div class="grid md:grid-cols-2 gap-4 mb-12">
+	
+					<div>
+	
+						<H2 class="md:mb-12">
+							<span class="block">
+								Wedding 
+							</span>
+							<span class="block">
+								cakes that 
+							</span>
+							<span class="flex items-center shrink-0">
+								wow
+								<div class="h-[1px] w-full ml-10 bg-text" />
+								<div class="rounded-full w-2 min-w-2 h-2 bg-text" />
+							</span>
+						</H2>
+	
+						<div class="pr-20 hidden md:block">
+							<img 
+								src="/img/cutting-cake-1.webp" 
+								width="692" 
+								height="595" 
+								loading="lazy"
+							/>
+						</div>
+	
+					</div>
+	
+					<div class="md:pt-[5.5rem]">
+						<p class="md:max-w-[29ch] mb-8">
+							Say yes to the cake of your dreams! From elegant to extravagant, we design wedding cakes that are as beautiful as they are delicious. 
+						</p>
+						<p class="md:max-w-[29ch]">
+							Whether you want a classic tiered design or a trendy masterpiece, we've got you covered. Every detail is crafted with love, passion, and a touch of magic.
+						</p>
+					</div>
+	
+					<img 
+						src="/img/cutting-cake-1.webp" 
+						width="692" 
+						height="595" 
+						class="md:hidden"
+						loading="lazy"
+					/>
+	
+	
+				</div>
+	
+				<!-- Not just wedding cakes -->
+				<div class="grid md:grid-cols-2 gap-4">
+	
+					<div>
+	
+						<H2 class="md:mb-12">
+							<span class="block">
+								Not just
+							</span>
+							<span class="block">
+								wedding
+							</span>
+							<span class="flex items-center shrink-0">
+								cakes
+								<div class="h-[1px] w-full ml-10 bg-text" />
+								<div class="rounded-full w-2 min-w-2 h-2 bg-text" />
+							</span>
+						</H2>
+	
+						<div class="pr-20 hidden md:block">
+							<img 
+								src="/img/cupcakes-1.webp" 
+								width="692" 
+								height="595" 
+								loading="lazy"
+							/>
+						</div>
+	
+					</div>
+	
+					<div class="md:pt-[5.5rem] md:max-w-[29ch] [&>*]:mb-8">
+						<p>
+							Who says the party stops at the wedding? We offer an array of baked goods that will leave you craving more!
+						</p>
+						<p>
+							Decadent cupcakes to show-stopping cookies, brownies - whatever the occasion, we've got something that'll make it sweeter.
+						</p>
+						<BookNowButton />
+					</div>
+	
+					<img 
+						src="/img/cupcakes-1.webp" 
+						width="692" 
+						height="595" 
+						class="md:hidden" 
+						loading="lazy"
+					/>
+	
+	
+				</div>
+			</div>
+
+			<div class="hidden md:block relative">
+				<div class="sticky top-24 text-text/20 text-6xl font-theme min-w-max rotate-90 origin-left ">
+					Made from scratch
+				</div>
+			</div>
+
+		</div>
+
+	</Section>
+
+	<Section width='full' class="bg-bg-light relative h-screen">
+
+		<div class="sticky top-64 py-8">
+			<H2 class="text-center">
+				Why choose Kelly Ann Creations?
+			</H2>
+	
+			<div class="grid sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 mt-16">
+	
+				<div class="flex flex-col items-center gap-3 text-center text-base">
+	
+					<Icon icon={CakeSlice} width="40" height="40" stroke-width="1" />
+	
+					<H3>
+						Made from scratch
+					</H3>
+	
+					<p>
+						No shortcuts, just pure love and the finest ingredients
+					</p>
+	
+				</div>
+	
+				<div class="flex flex-col items-center gap-3 text-center text-base">
+	
+					<Icon icon={Candy} width="40" height="40" stroke-width="1" />
+	
+					<H3>
+						Unforgettable flavour
+					</H3>
+	
+					<p>
+						We believe a cake should taste as good as it looks. Trust us, you'll want another slice
+					</p>
+	
+				</div>
+	
+				<div class="flex flex-col items-center gap-3 text-center text-base">
+	
+					<Icon icon={Microwave} width="40" height="40" stroke-width="1" />
+	
+					<H3>
+						Custom Creations
+					</H3>
+	
+					<p>
+						Every cake is uniquely yours, crafted to fit your style and vision
+					</p>
+	
+				</div>
+	
+				<div class="flex flex-col items-center gap-3 text-center text-base">
+	
+					<Icon icon={MapPinCheckInside} width="40" height="40" stroke-width="1" />
+	
+					<H3>
+						Local and Independant
+					</H3>
+	
+					<p>
+						When you support Kelly Ann Creations, you're supporting local artistry and ingredients
+					</p>
+	
+				</div>
+	
+			</div>
+
+		</div>
+
+		<div class="hidden md:block h-2/3 w-1/2 bg-bg-mid" />
+
+	</Section>
+
+	<div class="h-screen">hello</div>
+
 </Layout>
+
+<script>
+
+	window.addEventListener('load', () => {
+		const learnMoreLink = document.querySelector('a[href="#more"]')
+		const moreSection   = document.querySelector('#more')
+
+		learnMoreLink?.addEventListener('click', e => {
+			// @ts-ignore
+			if( !window.locomotiveScroll ) {
+				return
+			}
+			e.preventDefault()
+			// @ts-ignore
+			window.locomotiveScroll.scrollTo('#more')
+		})
+	})
+</script>
+
+<script>
+
+
+// Source: https://codepen.io/zadvorsky/pen/PwyoMm/
+
+let viewWidth : number
+let viewHeight : number
+let canvas = document.getElementById("hero-canvas") as HTMLCanvasElement
+let canvasContext : CanvasRenderingContext2D | null
+
+// change these settings
+let patternSize = 150
+let patternScaleX = 2
+let patternScaleY = 2
+let patternRefreshInterval = 12
+let patternAlpha = 15 // int between 0 and 255,
+
+let patternPixelDataLength = patternSize * patternSize * 4
+let patternCanvas : any
+let patternCtx : any
+let patternData : any
+let frame = 0
+
+window.addEventListener('load', function() {
+    initCanvas();
+    initGrain();
+    requestAnimationFrame(loop);
+})
+
+// create a canvas which will render the grain
+function initCanvas() {
+    viewWidth = canvas.width = canvas.clientWidth;
+    viewHeight = canvas.height = canvas.clientHeight;
+    canvasContext = canvas.getContext('2d') as CanvasRenderingContext2D;
+    canvasContext.scale(patternScaleX, patternScaleY);
+}
+
+// create a canvas which will be used as a pattern
+function initGrain() {
+    patternCanvas = document.createElement('canvas');
+    patternCanvas.width = patternSize;
+    patternCanvas.height = patternSize;
+    patternCtx = patternCanvas.getContext('2d');
+    patternData = patternCtx.createImageData(patternSize, patternSize);
+}
+
+// put a random shade of gray into every pixel of the pattern
+function update() {
+    var value;
+
+    for (var i = 0; i < patternPixelDataLength; i += 4) {
+        value = (Math.random() * 255) | 0;
+
+        patternData.data[i    ] = value;
+        patternData.data[i + 1] = value;
+        patternData.data[i + 2] = value;
+        patternData.data[i + 3] = patternAlpha;
+    }
+
+    patternCtx.putImageData(patternData, 0, 0);
+}
+
+// fill the canvas using the pattern
+function draw() {
+
+	if( ! canvasContext ) return
+
+    canvasContext.clearRect(0, 0, viewWidth, viewHeight);
+
+	// @ts-ignore
+	canvasContext.fillStyle = canvasContext.createPattern(patternCanvas, 'repeat');
+    canvasContext.fillRect(0, 0, viewWidth, viewHeight);
+}
+
+function loop() {
+    if (++frame % patternRefreshInterval === 0) {
+        update();
+        draw();
+    }
+
+    requestAnimationFrame(loop);
+}
+
+</script>
