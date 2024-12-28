@@ -301,7 +301,7 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside, MoveUp
 
         <div class="grid md:grid-cols-2 gap-x-4 gap-y-8">
             { imageTitles.slice(0,4).map( (title, i) => (
-                <div class="grid">
+                <div class="grid group">
                     <img 
                         src={`/gallery/${i+1}.webp`}
                         width="690"
@@ -319,7 +319,6 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside, MoveUp
                     ]}>
                         {title}
                     </div>
-
                 </div>
             ))}
         </div>
