@@ -293,12 +293,12 @@ document.addEventListener('astro:page-load', () => {
 	const learnMoreLink = document.querySelector('a[href="#more"]')
 	
 	learnMoreLink?.addEventListener('click', e => {
-		// @ts-ignore
+		// @ts-expect-error
 		if( !window.locomotiveScroll ) {
 			return
 		}
 		e.preventDefault()
-		// @ts-ignore
+		// @ts-expect-error
 		window.locomotiveScroll.scrollTo('#more')
 	})
 })

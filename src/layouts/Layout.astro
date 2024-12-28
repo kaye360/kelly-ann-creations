@@ -4,6 +4,10 @@ import '../assets/css/style.css'
 import Nav from '../components/Nav.astro';
 import Section from '../components/Section.astro';
 import Logo from '../components/Logo.astro';
+import H2 from '../components/H2.astro';
+import TextBlock from '../components/TextBlock.astro';
+import BookNowButton from '../components/BookNowButton.astro';
+import BackToTop from '../components/BackToTop.astro';
 ---
 
 <!doctype html>
@@ -30,33 +34,56 @@ import Logo from '../components/Logo.astro';
 		data-mobile-menu="close"
 	>
 
-		<header>
+		<header id="top">
 			<Nav />
 		</header>
 
 		<slot />
 
-		<footer class="flex flex-col items-center gap-4 py-20 bg-bg-dark mt-12">
-			<Logo />
-			<a 
-				href="/" 
-				class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
-			>
-				Home
-			</a>
-			<a 
-				href="/gallery" 
-				class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
-			>
-				Gallery
-			</a>
-			<a 
-				href="/contact" 
-				class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
-			>
-				Contact
-			</a>
+		<footer>
+
+			<Section class="bg-bg-dark mt-16">
+
+				<div class="grid md:grid-cols-2 gap-y-12 items-center py-8 ">
+
+					<TextBlock>
+						<H2>
+								Ready to Make Your Event <br /> Deliciously Unforgettable?
+						</H2>
+						<p>
+							Get in touch today for a free consultation or to place your order! Let's make your sweet dreams come true. Whether it's a wedding, birthday, or any special occasion, we'll bring your vision to life (and make it taste amazing).
+						</p>
+						<BookNowButton />
+					</TextBlock>
+					
+					<div class="flex flex-col items-center gap-4">
+						<Logo />
+						<a 
+							href="/" 
+							class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
+						>
+							Home
+						</a>
+						<a 
+							href="/gallery" 
+							class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
+						>
+							Gallery
+						</a>
+						<a 
+							href="/contact" 
+							class="hover:bg-text hover:text-white transition-colors active:scale-90 px-2"
+						>
+							Contact
+						</a>
+					</div>
+
+				</div>
+
+			</Section>
 		</footer>
+
+		<BackToTop />
 
 	</body>
 </html>

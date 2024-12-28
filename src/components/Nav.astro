@@ -150,7 +150,7 @@ document.addEventListener('astro:page-load', () => {
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
 <script>
     window.addEventListener('load', () => {
-        // @ts-ignore
+        // @ts-expect-error
         window.locomotiveScroll = new LocomotiveScroll();
     })
 </script>

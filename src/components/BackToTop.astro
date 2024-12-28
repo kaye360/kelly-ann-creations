@@ -1,0 +1,47 @@
+---
+import Icon from "./Icon.astro";
+import { ChevronsUp } from 'lucide'
+---
+
+<div class="fixed bottom-2 left-0 right-0">
+    <div class="w-full max-w-[1600px] mx-auto text-right">
+        <button 
+            id="back-to-top-button"
+            class="bg-bg-dark hover:opacity-60 active:opacity-100 active:scale-90 p-4 text-text/60 translate-y-24 transition-transform duration-300"
+        >
+            <Icon icon={ChevronsUp} class="scale-150" />
+        </button>
+    </div>
+</div>
+
+<script>
+
+// @ts-ignore
+import debounce from 'lodash.debounce'
+
+document.addEventListener('astro:page-load', () => {
+
+    const backToTopButton = document.querySelector('#back-to-top-button') as HTMLButtonElement
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top : 0,
+            behavior : 'smooth'
+        })
+    })
+
+    document.addEventListener('scroll', debounce( () => {
+        if( scrollY > window.screen.height) {
+            // Show
+            backToTopButton.classList.add('translate-y-0')
+            backToTopButton.classList.remove('translate-y-24')
+        } else {
+            // hide
+            backToTopButton.classList.add('translate-y-24')
+            backToTopButton.classList.remove('translate-y-0')
+        }
+    }, 100))
+})
+
+</script>
+
