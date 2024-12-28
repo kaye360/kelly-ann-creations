@@ -8,6 +8,7 @@ import H2 from '../components/H2.astro';
 import TextBlock from '../components/TextBlock.astro';
 import BookNowButton from '../components/BookNowButton.astro';
 import BackToTop from '../components/BackToTop.astro';
+import SkipToContent from '../components/SkipToContent.astro';
 ---
 
 <!doctype html>
@@ -17,14 +18,17 @@ import BackToTop from '../components/BackToTop.astro';
 		<meta name="viewport" content="width=device-width" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-		<title>Kelly Ann Creations</title>
-
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Gloock&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 		<ClientRouter />
+
+		<slot name="title">
+			<title>
+				Kelly Ann Creations
+			</title>
+		</slot>
 
 		<slot name="head" />
 
@@ -34,11 +38,15 @@ import BackToTop from '../components/BackToTop.astro';
 		data-mobile-menu="close"
 	>
 
+		<SkipToContent />
+
 		<header id="top">
 			<Nav />
 		</header>
 
-		<slot />
+		<main id="content">
+			<slot />
+		</main>
 
 		<footer>
 

@@ -8,7 +8,11 @@ import Layout from '../layouts/Layout.astro';
 import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 'lucide'
 ---
 
-<Layout>
+<Layout title='Custom cakes and baked goods'>
+
+	<title slot="title">
+		Custom cakes and pastries made locally with Kelly Ann Creations
+	</title>
 
 	<link rel="preload" href="/image/hero.webp" as="image" slot="head">
 
