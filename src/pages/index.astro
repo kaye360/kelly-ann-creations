@@ -4,8 +4,9 @@ import H2 from '../components/H2.astro';
 import H3 from '../components/H3.astro';
 import Icon from '../components/Icon.astro';
 import Section from '../components/Section.astro';
+import { imageTitles } from '../data/images';
 import Layout from '../layouts/Layout.astro';
-import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 'lucide'
+import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside, MoveUpRight } from 'lucide'
 ---
 
 <Layout title='Custom cakes and baked goods'>
@@ -218,6 +219,7 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 
 
 	</Section>
 
+	<!-- Why choose -->
 	<Section width='full' class="relative">
 
 			<H2 class="text-center">
@@ -290,9 +292,47 @@ import { SquareArrowDown, CakeSlice, Candy, Microwave, MapPinCheckInside } from 
 
 	</Section>
 
-	<Section>
-		Hi
-	</Section>
+	<!-- Gallery Preview -->
+    <Section>
+
+		<H2 class="mb-8">
+			Some of our work
+		</H2>
+
+        <div class="grid md:grid-cols-2 gap-x-4 gap-y-8">
+            { imageTitles.slice(0,4).map( (title, i) => (
+                <div class="grid">
+                    <img 
+                        src={`/gallery/${i+1}.webp`}
+                        width="690"
+                        height="690"
+                        alt={title}
+                        loading="lazy"
+                        role="presentation"
+                        class:list={[
+                            i%2 === 0 ? 'md:order-1' : 'md:order-2'
+                        ]}
+                    />
+                    <div class:list={[
+                        i%2 === 0 ? 'md:order-2 md:pb-36' : 'md:order-1 md:pt-36',
+                        "text-xl font-theme"
+                    ]}>
+                        {title}
+                    </div>
+
+                </div>
+            ))}
+        </div>
+
+		<a 
+			href="/gallery" 
+			class="flex items-center gap-2 mx-auto mt-12 w-fit text-xl p-4 border border-text/50 hover:bg-text/30 active:scale-90"
+		>
+			View more photos
+			<Icon icon={MoveUpRight} />
+		</a>
+
+    </Section>
 
 </Layout>
 
