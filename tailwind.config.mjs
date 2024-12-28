@@ -17,8 +17,7 @@ export default {
 				text : '#4D4D4D',
 			},
 			animation : {
-				'reveal-up-slow' : 'reveal-up 3000ms cubic-bezier(.01,1.01,.22,.99) both',
-				'reveal-up-fast' : 'reveal-up 1500ms cubic-bezier(.01,1.01,.22,.99) both',
+				'reveal-up' : 'reveal-up 1500ms cubic-bezier(.01,1.01,.22,.99) both',
 				'fade-in' : 'fade-in 750ms both'
 			},
 			keyframes : {

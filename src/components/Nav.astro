@@ -142,13 +142,13 @@ document.addEventListener('astro:page-load', () => {
     mobileMenuOpenButton.addEventListener('click', () => {
         setTimeout( () => {
             document.body.dataset.mobileMenu = 'open'
-            logo.classList.add('flex-col', 'animate-reveal-up-slow')
+            logo.classList.add('flex-col', 'animate-reveal-up')
             mobileMenuCloseButton.classList.add('animate-fade-in')
             navLinks.classList.add('flex', '!gap-12')
             navLinks.classList.remove('hidden')
         
             navLinkList.forEach( (link, i) => {
-                link.classList.add('animate-reveal-up-fast') 
+                link.classList.add('animate-reveal-up') 
                 link.style.animationDelay = i * 300 + 500 + 'ms'
             })
         }, 300)
@@ -157,7 +157,7 @@ document.addEventListener('astro:page-load', () => {
     mobileMenuCloseButton.addEventListener('click', () => {
         setTimeout( () => {
             document.body.dataset.mobileMenu = 'close'
-            logo.classList.remove('flex-col', 'animate-reveal-up-fast')
+            logo.classList.remove('flex-col', 'animate-reveal-up')
             navLinks.classList.remove('flex', '!gap-12')
             navLinks.classList.add('hidden')
         }, 300)
