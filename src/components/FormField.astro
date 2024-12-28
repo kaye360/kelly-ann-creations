@@ -1,0 +1,87 @@
+---
+
+interface Props {
+
+    type : 'textarea' | 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week',
+
+    /** <label> title and <input>, <textarea> name, id (toLowerCase) */
+    name : string,
+
+    /** Label title if name and label need to be different */
+    label? : string,
+
+    /** Required Field */
+    required? : boolean,
+
+    /**
+     * @prop name - string
+     * @prop label - string (optional)
+     * @prop required - boolean (Default false)
+     * @prop type - 'HTMLInputType' | 'textarea'
+     */
+    props? : true,
+    
+}
+
+const {
+    type,
+    name,
+    required = true,
+    label
+} = Astro.props
+---
+
+<label 
+    class="grid items-center w-full max-w-[600px] first:mt-4"
+>
+
+    <span class="flex items-center gap-2 mb-1 font-bold text-lg">
+        { label || name }
+        { required && (
+            <span class="inline-block text-sm opacity-60">
+                (Required)
+            </span>
+        )}
+    </span>
+
+    { type ===  'textarea' ? (
+
+        <textarea 
+            name={name.toLowerCase()} 
+            id={name.toLowerCase()}
+            class="p-2 border border-text/50 bg-white/20 focus-visible:border-text h-32"
+         />
+
+    ) : (
+
+        <input 
+            type={type} 
+            name={name.toLowerCase()} 
+            id={name.toLowerCase()} 
+            required={required} 
+            class="p-2 border border-text/50 bg-white/20 focus-visible:border-text"
+        />
+
+    )}
+
+</label>
+
+
+<style>
+
+label:has(input[type=checkbox]),
+label:has(input[type=radio]) {
+    grid-template-columns: 1fr 2fr;
+    justify-content: start;
+    justify-items: start;
+    gap : 1rem;
+    padding-block : 0.25rem;
+}
+
+label:has(input[type=checkbox]):hover,
+label:has(input[type=radio]):hover {
+    cursor: pointer;
+
+}
+</style>
+
