@@ -18,6 +18,22 @@ import SkipToContent from '../components/SkipToContent.astro';
 		<meta name="viewport" content="width=device-width" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- More info re: preload at https://stackoverflow.com/questions/45983301/google-pagespeed-eliminate-render-blocking-resources-above-the-fold-caused-fro -->
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Gloock&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Gloock&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+				rel="stylesheet"
+				type="text/css"
+			/>
+		</noscript>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Gloock&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -29,6 +45,8 @@ import SkipToContent from '../components/SkipToContent.astro';
 				Kelly Ann Creations
 			</title>
 		</slot>
+
+		<meta name="description" content="Kelly Ann Creations is a local, independent baker in Port Coquitlam BC. We specialize in custom cakes, wedding cakes, and other baked goods." />
 
 		<slot name="head" />
 
